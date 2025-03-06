@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lingo Realm</title>
+  <style>
+    /* Yleiset sivustyylit */
+    body {
+      font-family: 'Press Start 2P', Arial, sans-serif; /* Pelityylinen fontti */
+      margin: 0;
+      padding: 0;
+      background-color: #007AFF; /* Sininen tausta */
+      color: #ffffff; /* Valkoinen teksti */
+      line-height: 1.6;
+    }
+    
+    /* Otsikkotyylit */
+    header {
+      background-color: #0051a2; /* Tumma sininen otsikkoon */
+      color: #ffffff;
+      padding: 2rem;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    header img {
+      width: 150px;
+      margin-bottom: 1rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+    .flags {
+      margin: 1rem 0;
+    }
+    .flags a, .flags span {
+      font-size: 3rem; /* Suuret liput */
+      margin: 0 5px;
+      text-decoration: none;
+    }
+    header h2 {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    
+    /* Sektioiden tyylit */
+    section {
+      padding: 2rem;
+    }
+    section h2 {
+      font-size: 1.8rem;
+      color: #ffffff;
+    }
+    section p, section ul {
+      color: #ffffff;
+    }
+    
+    /* Näyttökuvien ruudukko */
+    .screenshots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .screenshots img {
+      width: 100%;
+      border: 5px solid #ffffff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
+    }
+    
+    /* Video-osio */
+    .videos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      justify-items: center;
+    }
+    .videos video {
+      width: 100%;
+      height: auto;
+      border: 3px solid #ffffff;
+      border-radius: 5px;
+      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
+    }
+    
+    /* Sivun alatunniste */
+    footer {
+      background-color: #0051a2;
+      padding: 1.5rem;
+      text-align: center;
+      color: #ffffff;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Otsikko -->
+  <header>
+    <img src="logo.png" alt="Logo Lingo Realm">
+    <h1>Lingo Realm</h1>
+    <div class="flags">
+      <a href="index-en.html" title="English">🇬🇧</a>
+      <a href="index-es.html" title="Spanish">🇪🇸</a>
+      <a href="index-fr.html" title="French">🇫🇷</a>
+      <a href="index-de.html" title="German">🇩🇪</a>
+      <a href="index-it.html" title="Italian">🇮🇹</a>
+      <a href="index-pl.html" title="Polish">🇵🇱</a>
+      <a href="index-ro.html" title="Romanian">🇷🇴</a>
+      <a href="index-nl.html" title="Dutch">🇳🇱</a>
+      <a href="index-ru.html" title="Russian">🇷🇺</a>
+      <a href="index-uk.html" title="Ukrainian">🇺🇦</a>
+      <a href="index-tr.html" title="Turkish">🇹🇷</a>
+      <a href="index-el.html" title="Greek">🇬🇷</a>
+      <a href="index-sv.html" title="Swedish">🇸🇪</a>
+      <a href="index-hu.html" title="Hungarian">🇭🇺</a>
+      <span title="Finnish">🇫🇮</span>
+      <a href="index-da.html" title="Danish">🇩🇰</a>
+      <a href="index-az.html" title="Azeri">🇦🇿</a>
+    </div>
+    <h2>Lingo Games:n vallankumouksellinen sanavaraston pelikokemus</h2>
+  </header>
+  
+  <!-- Tietoa Lingo Realmista -->
+  <section>
+    <h2>Tietoa Lingo Realmista</h2>
+    <p>
+      Tervetuloa <strong>Lingo Realm</strong> -sovellukseen, joka on sanavaraston oppimispelien huippu ja muuttaa oppimisen mukaansatempaavaksi seikkailuksi. Sovellus tukee 17 kieltä ja siinä on 8 jännittävää pelitilaa – kuuntelu- ja puhepeleistä parin muodostamiseen, sanayhdistelyyn, käännöksiin ja tietovisoihin – Lingo Realm on porttisi uuden sanavaraston hallintaan sekä arkipäivän käyttöön että kokeisiin valmistautumiseen (TOEFL, GRE sekä kielitaitotasot A1:stä C1:een).
+    </p>
+    <ul>
+      <li>Opi sanastoa pelillistämisen avulla</li>
+      <li>8 dynaamista pelitilaa</li>
+      <li>Tukee 17 kieltä: englanti, espanja, ranska, saksa, italia, puola, romania, hollanti, venäjä, ukraina, turkki, kreikka, ruotsi, unkari, suomi, tanska, azeri</li>
+      <li>Kokeisiin valmistavat moduulit TOEFL, GRE ja kielitestit</li>
+    </ul>
+  </section>
+  
+  <!-- Näyttökuvat -->
+  <section>
+    <h2>Näyttökuvat</h2>
+    <div class="screenshots">
+      <img src="screenshot1.png" alt="Päävalikko">
+      <img src="screenshot2.png" alt="Pelivalikko">
+      <img src="screenshot3.png" alt="Kuuntelupeli">
+      <img src="screenshot4.png" alt="Puhepeli">
+      <img src="screenshot5.png" alt="Parin muodostuspeli">
+      <img src="screenshot6.png" alt="Sanojen yhdistely">
+      <img src="screenshot7.png" alt="Käännöspeli">
+      <img src="screenshot8.png" alt="Tietovisa">
+      <img src="screenshot9.png" alt="Testitila">
+      <img src="screenshot10.png" alt="Kokeisiin valmistautuminen">
+    </div>
+  </section>
+  
+  <!-- Videot -->
+  <section>
+    <h2>Pelikokemuksen videot</h2>
+    <div class="videos">
+      <video controls>
+        <source src="gameplay1.mp4" type="video/mp4">
+        Selaimesi ei tue videon näyttämistä.
+      </video>
+      <video controls>
+        <source src="gameplay2.mp4" type="video/mp4">
+        Selaimesi ei tue videon näyttämistä.
+      </video>
+      <video controls>
+        <source src="gameplay4.mp4" type="video/mp4">
+        Selaimesi ei tue videon näyttämistä.
+      </video>
+    </div>
+  </section>
+  
+  <!-- Ominaisuudet -->
+  <section>
+    <h2>Ominaisuudet</h2>
+    <p>
+      Koe sanavaraston oppiminen kuin et koskaan ennen:
+    </p>
+    <ul>
+      <li>8 viihdyttävää ja mukaansatempaavaa pelitilaa</li>
+      <li>Tuki 17 kielelle</li>
+      <li>Moduulit kuuntelu-, puhe- ja käännösharjoituksiin</li>
+      <li>Erikoistuneet moduulit TOEFL, GRE -kokeisiin ja kielitestauksiin</li>
+    </ul>
+  </section>
+  
+  <!-- Sivun alatunniste -->
+  <footer>
+    <p>&copy; 2025 Lingo Games. Kaikki oikeudet pidätetään.</p>
+    <p>
+      Saatavilla <strong><a href="https://apps.apple.com" target="_blank">App Storesta</a></strong> ja pian myös <strong>Google Playssa</strong>.
+    </p>
+    <a href="privacy-policy.html">Tietosuojakäytäntö</a>
+  </footer>
+</body>
+</html>
+
