@@ -11,40 +11,76 @@
       margin: 0;
       padding: 0;
       background-color: #1C1C1E; /* Dark Charcoal */
-      color: #FFFFFF; /* White for main text */
+      color: #FFFFFF;
       line-height: 1.6;
     }
     
     /* Header Styling */
     header {
-      background-color: #1C1C1E; /* Same dark background */
-      color: #D4AF37; /* Metallic Gold for titles */
-      padding: 2rem;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1C1C1E; /* Dark Charcoal */
+      padding: 1.5rem 2rem;
       text-transform: uppercase;
     }
-    header img {
-      width: 150px;
-      margin-bottom: 1rem;
+    
+    /* Left part of the header: logo, title, flags, tagline */
+    .header-left {
+      flex: 1;
+      text-align: left;
     }
-    header h1 {
+    .header-left img {
+      width: 150px;
+      margin-bottom: 0.5rem;
+    }
+    .header-left h1 {
       font-size: 2.5rem;
       margin: 0;
       font-weight: bold;
+      color: #D4AF37; /* Metallic Gold */
     }
-    .flags {
+    .header-left .flags {
       margin: 1rem 0;
     }
-    .flags a, .flags span {
-      font-size: 2.5rem; /* Adjust flag size for balance */
+    .header-left .flags a, 
+    .header-left .flags span {
+      font-size: 2.5rem;
       margin: 0 0.3rem;
       text-decoration: none;
     }
-    header h2 {
+    .header-left h2 {
       font-size: 1.2rem;
       margin-top: 0.5rem;
       font-weight: normal;
       color: #D4AF37; /* Metallic Gold */
+    }
+    
+    /* Right part of the header: Special offer and QR code */
+    .header-right {
+      flex: 1;
+      background-color: #2C2C2E; /* Slightly lighter dark tone */
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      margin-left: 1rem;
+    }
+    .header-right h2 {
+      font-size: 1.5rem;
+      margin: 0 0 0.5rem 0;
+      color: #D4AF37; /* Metallic Gold */
+    }
+    .header-right p {
+      font-size: 1rem;
+      margin: 0 0 1rem 0;
+      color: #FFFFFF;
+      font-weight: bold;
+    }
+    .qr-code {
+      width: 10vw; /* At least 10% of viewport width */
+      max-width: 150px;
+      margin: 0 auto;
+      display: block;
     }
     
     /* Section Styling */
@@ -53,30 +89,14 @@
     }
     section h2 {
       font-size: 1.8rem;
-      color: #D4AF37; /* Metallic Gold for section titles */
-      border-bottom: 2px solid #D4AF37; /* Underline in Metallic Gold */
+      color: #D4AF37; /* Metallic Gold */
+      border-bottom: 2px solid #D4AF37;
       padding-bottom: 0.5rem;
       margin-bottom: 1rem;
     }
     section p, section ul {
-      color: #FFFFFF; /* White text for readability */
-      font-size: 1rem;
-    }
-    
-    /* Special Offer Section */
-    #offer {
-      background-color: #2C2C2E; /* Slightly lighter dark tone */
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin: 2rem;
-      text-align: center;
-    }
-    #offer h2 {
-      color: #D4AF37; /* Metallic Gold */
-    }
-    #offer p {
       color: #FFFFFF;
-      font-weight: bold;
+      font-size: 1rem;
     }
     
     /* Screenshots Grid */
@@ -109,54 +129,56 @@
     
     /* Footer Styling */
     footer {
-      background-color: #1C1C1E; /* Dark Charcoal */
+      background-color: #1C1C1E;
       padding: 1.5rem;
       text-align: center;
       color: #FFFFFF;
       font-size: 0.9rem;
     }
     footer a {
-      color: #D4AF37; /* Metallic Gold for links in footer */
+      color: #D4AF37; /* Metallic Gold for links */
       text-decoration: none;
     }
     footer a:hover {
       text-decoration: underline;
-    }
-    
-    /* QR Code styling */
-    .qr-code {
-      width: 10vw; /* At least 10% of viewport width */
-      max-width: 150px; /* Cap size on larger screens */
-      margin: 1rem auto;
-      display: block;
     }
   </style>
 </head>
 <body>
   <!-- Header Section -->
   <header>
-    <img src="logo.png" alt="Lingo Realm Logo">
-    <h1>Lingo Realm</h1>
-    <div class="flags">
-      <span title="English">🇬🇧</span>
-      <a href="index-es.html" title="Spanish">🇪🇸</a>
-      <a href="index-fr.html" title="French">🇫🇷</a>
-      <a href="index-de.html" title="German">🇩🇪</a>
-      <a href="index-it.html" title="Italian">🇮🇹</a>
-      <a href="index-pl.html" title="Polish">🇵🇱</a>
-      <a href="index-ro.html" title="Romanian">🇷🇴</a>
-      <a href="index-nl.html" title="Dutch">🇳🇱</a>
-      <a href="index-ru.html" title="Russian">🇷🇺</a>
-      <a href="index-uk.html" title="Ukrainian">🇺🇦</a>
-      <a href="index-tr.html" title="Turkish">🇹🇷</a>
-      <a href="index-el.html" title="Greek">🇬🇷</a>
-      <a href="index-sv.html" title="Swedish">🇸🇪</a>
-      <a href="index-hu.html" title="Hungarian">🇭🇺</a>
-      <a href="index-fi.html" title="Finnish">🇫🇮</a>
-      <a href="index-da.html" title="Danish">🇩🇰</a>
-      <a href="index-az.html" title="Azeri">🇦🇿</a>
+    <div class="header-left">
+      <img src="logo.png" alt="Lingo Realm Logo">
+      <h1>Lingo Realm</h1>
+      <div class="flags">
+        <span title="English">🇬🇧</span>
+        <a href="index-es.html" title="Spanish">🇪🇸</a>
+        <a href="index-fr.html" title="French">🇫🇷</a>
+        <a href="index-de.html" title="German">🇩🇪</a>
+        <a href="index-it.html" title="Italian">🇮🇹</a>
+        <a href="index-pl.html" title="Polish">🇵🇱</a>
+        <a href="index-ro.html" title="Romanian">🇷🇴</a>
+        <a href="index-nl.html" title="Dutch">🇳🇱</a>
+        <a href="index-ru.html" title="Russian">🇷🇺</a>
+        <a href="index-uk.html" title="Ukrainian">🇺🇦</a>
+        <a href="index-tr.html" title="Turkish">🇹🇷</a>
+        <a href="index-el.html" title="Greek">🇬🇷</a>
+        <a href="index-sv.html" title="Swedish">🇸🇪</a>
+        <a href="index-hu.html" title="Hungarian">🇭🇺</a>
+        <a href="index-fi.html" title="Finnish">🇫🇮</a>
+        <a href="index-da.html" title="Danish">🇩🇰</a>
+        <a href="index-az.html" title="Azeri">🇦🇿</a>
+      </div>
+      <h2>A Revolutionary Vocabulary Gaming Experience by Lingo Games</h2>
     </div>
-    <h2>A Revolutionary Vocabulary Gaming Experience by Lingo Games</h2>
+    <div class="header-right">
+      <h2>Special Offer</h2>
+      <p>Campaign Mode at the lowest prices for 1 month!</p>
+      <img class="qr-code" src="qr-code.png" alt="Download Lingo Realm QR Code">
+      <p>
+        <a href="https://apps.apple.com/tr/app/lingo-realm/id6741111876?l=tr" target="_blank" style="color:#D4AF37;">Download Now</a>
+      </p>
+    </div>
   </header>
   
   <!-- About Section -->
@@ -171,22 +193,6 @@
       <li>Supports 17 languages</li>
       <li>Exam prep modules for TOEFL, GRE, and proficiency tests</li>
     </ul>
-  </section>
-  
-  <!-- Special Offer Section -->
-  <section id="offer">
-    <h2>Special Offer</h2>
-    <p>Try our Campaign Mode at the lowest prices for 1 month!</p>
-  </section>
-  
-  <!-- QR Code Section -->
-  <section id="download">
-    <h2>Download Lingo Realm</h2>
-    <!-- The QR code image should embed the link "https://apps.apple.com/tr/app/lingo-realm/id6741111876?l=tr" -->
-    <img class="qr-code" src="qr-code.png" alt="Download Lingo Realm QR Code">
-    <p>
-      Or download directly from the <a href="https://apps.apple.com/tr/app/lingo-realm/id6741111876?l=tr" target="_blank">App Store</a>.
-    </p>
   </section>
   
   <!-- Screenshots Section -->
