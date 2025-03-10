@@ -5,82 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lingo Realm</title>
   <style>
-    /* Premium Dark Theme Styling */
+    /* General Page Styling */
     body {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: 'Press Start 2P', Arial, sans-serif; /* Gaming-inspired font */
       margin: 0;
       padding: 0;
-      background-color: #1C1C1E; /* Dark Charcoal */
-      color: #FFFFFF;
+      background-color: #007AFF; /* Blue background */
+      color: #ffffff; /* White text */
       line-height: 1.6;
     }
     
     /* Header Styling */
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #1C1C1E; /* Dark Charcoal */
-      padding: 1.5rem 2rem;
+      background-color: #0051a2; /* Darker blue for header */
+      color: #ffffff; /* White text */
+      padding: 2rem;
+      text-align: center;
       text-transform: uppercase;
     }
-    
-    /* Left part of the header: logo, title, flags, tagline */
-    .header-left {
-      flex: 1;
-      text-align: left;
-    }
-    .header-left img {
+    header img {
       width: 150px;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
-    .header-left h1 {
+    header h1 {
       font-size: 2.5rem;
       margin: 0;
-      font-weight: bold;
-      color: #D4AF37; /* Metallic Gold */
     }
-    .header-left .flags {
+    .flags {
       margin: 1rem 0;
     }
-    .header-left .flags a, 
-    .header-left .flags span {
-      font-size: 2.5rem;
-      margin: 0 0.3rem;
+    .flags a, .flags span {
+      font-size: 3rem; /* Large size for flags */
+      margin: 0 5px;
       text-decoration: none;
     }
-    .header-left h2 {
+    header h2 {
       font-size: 1.2rem;
       margin-top: 0.5rem;
-      font-weight: normal;
-      color: #D4AF37; /* Metallic Gold */
-    }
-    
-    /* Right part of the header: Special Offer and QR code */
-    .header-right {
-      flex: 1;
-      background-color: #2C2C2E; /* Slightly lighter dark tone */
-      border-radius: 8px;
-      padding: 1.5rem;
-      text-align: center;
-      margin-left: 1rem;
-    }
-    .header-right h2 {
-      font-size: 1.5rem;
-      margin: 0 0 0.5rem 0;
-      color: #D4AF37; /* Metallic Gold */
-    }
-    .header-right p {
-      font-size: 1rem;
-      margin: 0 0 1rem 0;
-      color: #FFFFFF;
-      font-weight: bold;
-    }
-    .qr-code {
-      width: 10vw; /* Default: 10% of viewport width */
-      max-width: 150px;
-      margin: 0 auto;
-      display: block;
     }
     
     /* Section Styling */
@@ -89,74 +50,67 @@
     }
     section h2 {
       font-size: 1.8rem;
-      color: #D4AF37; /* Metallic Gold for section titles */
-      border-bottom: 2px solid #D4AF37;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
+      color: #ffffff; /* White for section headers */
     }
     section p, section ul {
-      color: #FFFFFF;
-      font-size: 1rem;
+      color: #ffffff; /* White text for content */
     }
     
-    /* Screenshots Grid */
+    /* Screenshots Grid (5 images only) */
     .screenshots {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(5, 1fr);
       gap: 1rem;
     }
     .screenshots img {
       width: 100%;
-      border: 5px solid #2C2C2E;
+      border: 5px solid #ffffff; /* White border */
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
     }
     
-    /* Videos Section */
+    /* Videos Section (5 videos in grid) */
     .videos {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 1rem;
       justify-items: center;
     }
     .videos video {
       width: 100%;
       height: auto;
-      border: 3px solid #2C2C2E;
+      border: 3px solid #ffffff; /* White border */
       border-radius: 5px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
+    }
+    
+    /* QR Code Section Default Styling */
+    .qr-code img {
+      max-width: 200px;
+      display: block;
+      margin: 0 auto;
     }
     
     /* Footer Styling */
     footer {
-      background-color: #1C1C1E;
+      background-color: #0051a2;
       padding: 1.5rem;
       text-align: center;
-      color: #FFFFFF;
+      color: #ffffff;
       font-size: 0.9rem;
     }
     footer a {
-      color: #D4AF37;
+      color: #ffffff;
       text-decoration: none;
     }
     footer a:hover {
       text-decoration: underline;
     }
     
-    /* Media Query for Small Screens */
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: center;
-      }
-      .header-right {
-        margin-left: 0;
-        margin-top: 1rem;
-        width: 100%;
-      }
-      .qr-code {
-        width: 14.3vw; /* ~1/7th of viewport width */
-        max-width: none;
+    /* Responsive Styling for Phone Screens in Vertical Mode */
+    @media only screen and (max-width: 480px) and (orientation: portrait) {
+      .qr-code img {
+        width: 80vw; /* QR code occupies 80% of the viewport width */
       }
     }
   </style>
@@ -164,55 +118,47 @@
 <body>
   <!-- Header Section -->
   <header>
-    <div class="header-left">
-      <img src="logo.png" alt="Lingo Realm Logo">
-      <h1>Lingo Realm</h1>
-      <div class="flags">
-        <span title="English">🇬🇧</span>
-        <a href="index-es.html" title="Spanish">🇪🇸</a>
-        <a href="index-fr.html" title="French">🇫🇷</a>
-        <a href="index-de.html" title="German">🇩🇪</a>
-        <a href="index-it.html" title="Italian">🇮🇹</a>
-        <a href="index-pl.html" title="Polish">🇵🇱</a>
-        <a href="index-ro.html" title="Romanian">🇷🇴</a>
-        <a href="index-nl.html" title="Dutch">🇳🇱</a>
-        <a href="index-ru.html" title="Russian">🇷🇺</a>
-        <a href="index-uk.html" title="Ukrainian">🇺🇦</a>
-        <a href="index-tr.html" title="Turkish">🇹🇷</a>
-        <a href="index-el.html" title="Greek">🇬🇷</a>
-        <a href="index-sv.html" title="Swedish">🇸🇪</a>
-        <a href="index-hu.html" title="Hungarian">🇭🇺</a>
-        <a href="index-fi.html" title="Finnish">🇫🇮</a>
-        <a href="index-da.html" title="Danish">🇩🇰</a>
-        <a href="index-az.html" title="Azeri">🇦🇿</a>
-      </div>
-      <h2>A Revolutionary Vocabulary Gaming Experience by Lingo Games</h2>
+    <img src="logo.png" alt="Lingo Realm Logo">
+    <h1>Lingo Realm</h1>
+    <div class="flags">
+      <!-- English is the current language; the flag is not clickable -->
+      <span title="English">🇬🇧</span>
+      <!-- Other language links -->
+      <a href="index-es.html" title="Spanish">🇪🇸</a>
+      <a href="index-fr.html" title="French">🇫🇷</a>
+      <a href="index-de.html" title="German">🇩🇪</a>
+      <a href="index-it.html" title="Italian">🇮🇹</a>
+      <a href="index-pl.html" title="Polish">🇵🇱</a>
+      <a href="index-ro.html" title="Romanian">🇷🇴</a>
+      <a href="index-nl.html" title="Dutch">🇳🇱</a>
+      <a href="index-ru.html" title="Russian">🇷🇺</a>
+      <a href="index-uk.html" title="Ukrainian">🇺🇦</a>
+      <a href="index-tr.html" title="Turkish">🇹🇷</a>
+      <a href="index-el.html" title="Greek">🇬🇷</a>
+      <a href="index-sv.html" title="Swedish">🇸🇪</a>
+      <a href="index-hu.html" title="Hungarian">🇭🇺</a>
+      <a href="index-fi.html" title="Finnish">🇫🇮</a>
+      <a href="index-da.html" title="Danish">🇩🇰</a>
+      <a href="index-az.html" title="Azeri">🇦🇿</a>
     </div>
-    <div class="header-right">
-      <h2>Special Offer</h2>
-      <p>Campaign Mode at the lowest prices for 1 month!</p>
-      <img class="qr-code" src="qr-code.png" alt="Download Lingo Realm QR Code">
-      <p>
-        <a href="https://apps.apple.com/tr/app/lingo-realm/id6741111876?l=tr" target="_blank">Download Now</a>
-      </p>
-    </div>
+    <h2>A Revolutionary Vocabulary Gaming Experience by Lingo Games</h2>
   </header>
   
   <!-- About Section -->
   <section>
     <h2>About Lingo Realm</h2>
     <p>
-      Welcome to <strong>Lingo Realm</strong>, the ultimate vocabulary gaming app that transforms learning into an engaging adventure. With support for 17 languages and 8 exciting game modes—ranging from listening and speaking games to pairing, word-matching, translation, and quiz modes—Lingo Realm is your gateway to mastering new vocabulary for everyday use as well as exam preparation.
+      Welcome to <strong>Lingo Realm</strong>, the ultimate vocabulary gaming app that transforms learning into an engaging adventure. With support for 17 languages and 8 exciting game modes—ranging from listening and speaking games to pairing, word-matching, translation, and quiz modes—Lingo Realm is your gateway to mastering new vocabulary for everyday use as well as exam preparation (TOEFL, GRE, and proficiency levels A1 through C1).
     </p>
     <ul>
       <li>Learn vocabulary through gamification</li>
       <li>8 dynamic game modes</li>
-      <li>Supports 17 languages</li>
+      <li>Supports 17 languages: English, Spanish, French, German, Italian, Polish, Romanian, Dutch, Russian, Ukrainian, Turkish, Greek, Swedish, Hungarian, Finnish, Danish, Azeri</li>
       <li>Exam prep modules for TOEFL, GRE, and proficiency tests</li>
     </ul>
   </section>
   
-  <!-- Screenshots Section -->
+  <!-- Screenshots Section (Only 5 images displayed) -->
   <section>
     <h2>Screenshots</h2>
     <div class="screenshots">
@@ -221,15 +167,10 @@
       <img src="screenshot3.png" alt="Listening Game">
       <img src="screenshot4.png" alt="Speaking Game">
       <img src="screenshot5.png" alt="Pairing Game">
-      <img src="screenshot6.png" alt="Word Matching">
-      <img src="screenshot7.png" alt="Translation Game">
-      <img src="screenshot8.png" alt="Quiz Game">
-      <img src="screenshot9.png" alt="Test Mode">
-      <img src="screenshot10.png" alt="Exam Prep">
     </div>
   </section>
   
-  <!-- Videos Section -->
+  <!-- Videos Section (5 videos displayed) -->
   <section>
     <h2>Gameplay Videos</h2>
     <div class="videos">
@@ -242,7 +183,15 @@
         Your browser does not support the video tag.
       </video>
       <video controls>
+        <source src="gameplay3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <video controls>
         <source src="gameplay4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <video controls>
+        <source src="gameplay5.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
@@ -251,12 +200,14 @@
   <!-- Features Section -->
   <section>
     <h2>Features</h2>
-    <p>Experience vocabulary learning like never before:</p>
+    <p>
+      Experience vocabulary learning like never before:
+    </p>
     <ul>
       <li>Fun and engaging 8 game modes</li>
-      <li>Supports 17 languages</li>
+      <li>Support for 17 languages</li>
       <li>Modules for listening, speaking, and translation exercises</li>
-      <li>Specialized test preparation for TOEFL, GRE, and proficiency tests</li>
+      <li>Specialized test preparation for TOEFL, GRE, and proficiency levels</li>
     </ul>
   </section>
   
@@ -264,16 +215,27 @@
   <section id="support">
     <h2>Support</h2>
     <p>
-      Need help or have questions about Lingo Realm? Our dedicated support team is here to assist you. Reach out at 
-      <a href="mailto:lingorealm@gmail.com">lingorealm@gmail.com</a> for inquiries, troubleshooting, or feedback.
+      Need help or have questions about Lingo Realm? Our dedicated support team is here to assist you. Please feel free to reach out to us at 
+      <a href="mailto:lingorealm@gmail.com">lingorealm@gmail.com</a> for any inquiries, troubleshooting, or feedback.
     </p>
+    <p>
+      We are committed to providing you with prompt and effective assistance so you can fully enjoy the Lingo Realm experience.
+    </p>
+  </section>
+  
+  <!-- QR Code Section for Mobile Users -->
+  <section id="qrcode">
+    <h2>Download Lingo Realm</h2>
+    <div class="qr-code">
+      <img src="qrcode.png" alt="Scan to download Lingo Realm">
+    </div>
   </section>
   
   <!-- Footer Section -->
   <footer>
     <p>&copy; 2025 Lingo Games. All rights reserved.</p>
     <p>
-      Available on the <strong><a href="https://apps.apple.com/tr/app/lingo-realm/id6741111876?l=tr" target="_blank">App Store</a></strong>
+      Available on the <strong><a href="https://apps.apple.com" target="_blank">App Store</a></strong>
       and coming soon on <strong>Google Play</strong>.
     </p>
     <p>For support, email us at <a href="mailto:lingorealm@gmail.com">lingorealm@gmail.com</a></p>
