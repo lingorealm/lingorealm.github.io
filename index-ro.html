@@ -4,202 +4,279 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lingo Realm</title>
+  <!-- Google Fonts for a modern premium look -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
   <style>
-    /* Stiluri generale pentru pagină */
+    :root {
+      /* Paleta de culori */
+      --royal-blue: #1A73E8;  /* Accent și bordură */
+      --golden: #D4AF37;      /* Titluri de secțiune, link-uri */
+      --vibrant: #FF6F61;     /* Slogan și efecte hover */
+      --dark-1: #1C1C1E;      /* Fundal principal */
+      --dark-2: #2C2C2E;      /* Fundalul header-ului și al footer-ului */
+      --ivory: #FFF8E7;       /* Text principal */
+    }
+    
+    /* Stil general */
     body {
-      font-family: 'Press Start 2P', Arial, sans-serif; /* Font inspirat din jocuri */
+      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #007AFF; /* Fundal albastru */
-      color: #ffffff; /* Text alb */
+      background-color: var(--dark-1);
+      color: var(--ivory);
       line-height: 1.6;
     }
     
-    /* Stiluri pentru antet */
+    /* Stilul header-ului */
     header {
-      background-color: #0051a2; /* Albastru închis pentru antet */
-      color: #ffffff;
+      background-color: var(--dark-2);
       padding: 2rem;
       text-align: center;
-      text-transform: uppercase;
+      border-bottom: 1px solid var(--royal-blue);
     }
     header img {
-      width: 150px;
+      width: 120px;
       margin-bottom: 1rem;
     }
     header h1 {
       font-size: 2.5rem;
       margin: 0;
+      color: var(--ivory);
     }
     .flags {
       margin: 1rem 0;
     }
-    .flags a, .flags span {
-      font-size: 3rem; /* Dimensiune mare pentru steaguri */
+    .flags span, .flags a {
+      font-size: 2rem;
       margin: 0 5px;
       text-decoration: none;
+      color: var(--ivory);
     }
     header h2 {
-      font-size: 1.2rem;
+      font-size: 1rem;
       margin-top: 0.5rem;
+      color: var(--vibrant);
     }
     
-    /* Stiluri pentru secțiuni */
+    /* Stilul secțiunilor */
     section {
       padding: 2rem;
     }
     section h2 {
       font-size: 1.8rem;
-      color: #ffffff;
+      color: var(--golden);
+      margin-bottom: 1rem;
     }
     section p, section ul {
-      color: #ffffff;
+      color: var(--ivory);
+    }
+    section ul {
+      list-style: none;
+      padding: 0;
+    }
+    section ul li::before {
+      content: "•";
+      margin-right: 0.5rem;
+      color: var(--golden);
     }
     
-    /* Grilă pentru capturi de ecran */
+    /* Grid pentru capturi de ecran (10 imagini, maximum 5 pe rând) */
     .screenshots {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(5, 1fr);
       gap: 1rem;
     }
     .screenshots img {
       width: 100%;
-      border: 5px solid #ffffff;
+      border: 3px solid var(--royal-blue);
       border-radius: 10px;
-      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
     
-    /* Secțiunea video */
+    /* Grid pentru videoclipuri de gameplay (5 videoclipuri) */
     .videos {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 1rem;
       justify-items: center;
     }
     .videos video {
       width: 100%;
       height: auto;
-      border: 3px solid #ffffff;
+      border: 2px solid var(--royal-blue);
       border-radius: 5px;
-      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
     
-    /* Stiluri pentru subsol */
+    /* Stilul pentru QR Code */
+    .qr-code img {
+      max-width: 200px;
+      display: block;
+      margin: 0 auto;
+      border: 2px solid var(--royal-blue);
+      border-radius: 10px;
+    }
+    
+    /* Stilul footer-ului */
     footer {
-      background-color: #0051a2;
+      background-color: var(--dark-2);
       padding: 1.5rem;
       text-align: center;
-      color: #ffffff;
+      color: var(--ivory);
       font-size: 0.9rem;
+      border-top: 1px solid var(--royal-blue);
     }
     footer a {
-      color: #ffffff;
+      color: var(--golden);
       text-decoration: none;
     }
     footer a:hover {
+      color: var(--vibrant);
       text-decoration: underline;
+    }
+    
+    /* Stil responsive pentru dispozitive mobile (mod portret) */
+    @media only screen and (max-width: 480px) and (orientation: portrait) {
+      .qr-code img {
+        width: 80vw;
+      }
+      .screenshots {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .videos {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Secțiunea antet -->
+  <!-- Header -->
   <header>
     <img src="logo.png" alt="Logo Lingo Realm">
     <h1>Lingo Realm</h1>
     <div class="flags">
-      <a href="index-en.html" title="English">🇬🇧</a>
-      <a href="index-es.html" title="Spanish">🇪🇸</a>
-      <a href="index-fr.html" title="French">🇫🇷</a>
-      <a href="index-de.html" title="German">🇩🇪</a>
-      <a href="index-it.html" title="Italian">🇮🇹</a>
-      <a href="index-pl.html" title="Polish">🇵🇱</a>
-      <span title="Romanian">🇷🇴</span>
-      <a href="index-nl.html" title="Dutch">🇳🇱</a>
-      <a href="index-ru.html" title="Russian">🇷🇺</a>
-      <a href="index-uk.html" title="Ukrainian">🇺🇦</a>
-      <a href="index-tr.html" title="Turkish">🇹🇷</a>
-      <a href="index-el.html" title="Greek">🇬🇷</a>
-      <a href="index-sv.html" title="Swedish">🇸🇪</a>
-      <a href="index-hu.html" title="Hungarian">🇭🇺</a>
-      <a href="index-fi.html" title="Finnish">🇫🇮</a>
-      <a href="index-da.html" title="Danish">🇩🇰</a>
-      <a href="index-az.html" title="Azeri">🇦🇿</a>
+      <!-- Limba curentă: Română (non-clickabil) -->
+      <span title="Română">🇷🇴</span>
+      <!-- Alte opțiuni lingvistice -->
+      <a href="index-en.html" title="Engleză">🇬🇧</a>
+      <a href="index-es.html" title="Spaniolă">🇪🇸</a>
+      <a href="index-fr.html" title="Franceză">🇫🇷</a>
+      <a href="index-de.html" title="Germană">🇩🇪</a>
+      <a href="index-it.html" title="Italiană">🇮🇹</a>
+      <a href="index-tr.html" title="Turcă">🇹🇷</a>
+      <a href="index-pl.html" title="Poloneză">🇵🇱</a>
+      <a href="index-ro.html" title="Română">🇷🇴</a>
+      <a href="index-nl.html" title="Olandeză">🇳🇱</a>
+      <a href="index-ru.html" title="Rusă">🇷🇺</a>
+      <a href="index-uk.html" title="Ucrainiană">🇺🇦</a>
+      <a href="index-el.html" title="Greacă">🇬🇷</a>
+      <a href="index-sv.html" title="Suedeză">🇸🇪</a>
+      <a href="index-hu.html" title="Maghiară">🇭🇺</a>
+      <a href="index-fi.html" title="Finlandeză">🇫🇮</a>
+      <a href="index-da.html" title="Daneză">🇩🇰</a>
+      <a href="index-az.html" title="Azeră">🇦🇿</a>
     </div>
-    <h2>O experiență revoluționară de jocuri de vocabular de la Lingo Games</h2>
+    <h2>O experiență revoluționară de joc de vocabular de la Lingo Games</h2>
   </header>
   
-  <!-- Secțiunea "Despre" -->
+  <!-- Despre Lingo Realm -->
   <section>
     <h2>Despre Lingo Realm</h2>
     <p>
-      Bine ați venit la <strong>Lingo Realm</strong>, aplicația supremă de jocuri de vocabular care transformă învățarea într-o aventură captivantă. Cu suport pentru 17 limbi și 8 moduri de joc palpitante — de la jocuri de ascultare și vorbire, la asocieri, potrivire de cuvinte, traducere și quiz-uri — Lingo Realm este poarta dvs. către stăpânirea unui vocabular nou, atât pentru uzul de zi cu zi, cât și pentru pregătirea examenelor (TOEFL, GRE și nivele de competență de la A1 la C1).
+      Bine ați venit la Lingo Realm, aplicația supremă de jocuri de vocabular care transformă învățarea într-o aventură captivantă. Cu suport pentru 17 limbi și 8 moduri de joc interesante – de la jocuri de ascultare și vorbire, la potrivirea și asortarea cuvintelor, traduceri și quiz-uri – Lingo Realm vă oferă posibilitatea de a stăpâni cuvinte noi, atât pentru uzul zilnic, cât și pentru pregătirea examenelor (TOEFL, GRE și nivelurile de competență de la A1 la C1).
     </p>
     <ul>
-      <li>Învățați vocabularul prin gamificare</li>
+      <li>Învață vocabular prin gamificare</li>
       <li>8 moduri de joc dinamice</li>
-      <li>Suport pentru 17 limbi: Engleză, Spaniolă, Franceză, Germană, Italiană, Poloneză, Română, Olandeză, Rusă, Ucraineană, Turcă, Greacă, Suedeză, Maghiară, Finlandeză, Daneză, Azeri</li>
-      <li>Module de pregătire pentru examene: TOEFL, GRE și teste de competență lingvistică</li>
+      <li>Suportă 17 limbi: engleză, spaniolă, franceză, germană, italiană, poloneză, română, olandeză, rusă, ucraineană, turcă, greacă, suedeză, maghiară, finlandeză, daneză, azeră</li>
+      <li>Module de pregătire pentru examene TOEFL, GRE și teste de competență lingvistică</li>
     </ul>
   </section>
   
-  <!-- Secțiunea Capturi de ecran -->
+  <!-- Capturi de ecran (10 imagini, maximum 5 pe rând) -->
   <section>
     <h2>Capturi de ecran</h2>
     <div class="screenshots">
-      <img src="screenshot1.png" alt="Ecran principal">
-      <img src="screenshot2.png" alt="Meniu de joc">
+      <img src="screenshot1.png" alt="Ecranul de pornire">
+      <img src="screenshot2.png" alt="Meniul jocului">
       <img src="screenshot3.png" alt="Joc de ascultare">
       <img src="screenshot4.png" alt="Joc de vorbire">
-      <img src="screenshot5.png" alt="Joc de asociere">
-      <img src="screenshot6.png" alt="Potrivire de cuvinte">
+      <img src="screenshot5.png" alt="Joc de potrivire">
+      <img src="screenshot6.png" alt="Asortare de cuvinte">
       <img src="screenshot7.png" alt="Joc de traducere">
       <img src="screenshot8.png" alt="Quiz">
-      <img src="screenshot9.png" alt="Mod test">
-      <img src="screenshot10.png" alt="Pregătire examene">
+      <img src="screenshot9.png" alt="Mod de test">
+      <img src="screenshot10.png" alt="Pregătire pentru examene">
     </div>
   </section>
   
-  <!-- Secțiunea Videoclipuri de gameplay -->
+  <!-- Videoclipuri de gameplay (5 videoclipuri) -->
   <section>
     <h2>Videoclipuri de gameplay</h2>
     <div class="videos">
       <video controls>
         <source src="gameplay1.mp4" type="video/mp4">
-        Browserul dvs. nu suportă tag-ul video.
+        Browserul dumneavoastră nu suportă elementul video.
       </video>
       <video controls>
         <source src="gameplay2.mp4" type="video/mp4">
-        Browserul dvs. nu suportă tag-ul video.
+        Browserul dumneavoastră nu suportă elementul video.
+      </video>
+      <video controls>
+        <source src="gameplay3.mp4" type="video/mp4">
+        Browserul dumneavoastră nu suportă elementul video.
       </video>
       <video controls>
         <source src="gameplay4.mp4" type="video/mp4">
-        Browserul dvs. nu suportă tag-ul video.
+        Browserul dumneavoastră nu suportă elementul video.
+      </video>
+      <video controls>
+        <source src="gameplay5.mp4" type="video/mp4">
+        Browserul dumneavoastră nu suportă elementul video.
       </video>
     </div>
   </section>
   
-  <!-- Secțiunea Caracteristici -->
+  <!-- Caracteristici -->
   <section>
     <h2>Caracteristici</h2>
     <p>
-      Experimentați învățarea vocabularului ca niciodată:
+      Experimentați învățarea vocabularului ca niciodată până acum:
     </p>
     <ul>
       <li>8 moduri de joc distractive și captivante</li>
       <li>Suport pentru 17 limbi</li>
       <li>Module pentru exerciții de ascultare, vorbire și traducere</li>
-      <li>Module specializate pentru pregătirea examenelor TOEFL, GRE și nivele de competență</li>
+      <li>Pregătire specializată pentru examene TOEFL, GRE și niveluri de competență lingvistică</li>
     </ul>
   </section>
   
-  <!-- Secțiunea Subsol -->
-  <footer>
-    <p>&copy; 2025 Lingo Games. Toate drepturile rezervate.</p>
+  <!-- Suport -->
+  <section id="support">
+    <h2>Suport</h2>
     <p>
-      Disponibil pe <strong><a href="https://apps.apple.com" target="_blank">App Store</a></strong> și în curând pe <strong>Google Play</strong>.
+      Aveți nevoie de ajutor sau aveți întrebări despre Lingo Realm? Echipa noastră dedicată de suport este aici pentru a vă ajuta. Pentru întrebări, depanare sau feedback, vă rugăm să ne contactați la <a href="mailto:lingorealm@gmail.com">lingorealm@gmail.com</a>.
     </p>
-<p>Pentru asistență, trimiteți-ne un e-mail la <a href="mailto:lingorealm@gmail.com">lingorealm@gmail.com</a></p>
-
+    <p>
+      Ne angajăm să vă oferim suport rapid și eficient, astfel încât să beneficiați la maximum de experiența Lingo Realm.
+    </p>
+  </section>
+  
+  <!-- Secțiunea QR Code (pentru utilizatorii de mobil) -->
+  <section id="qrcode">
+    <h2>Descarcă Lingo Realm</h2>
+    <div class="qr-code">
+      <img src="qr-code-ro.png" alt="Scanează pentru a descărca Lingo Realm">
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Lingo Games. Toate drepturile rezervate.</p>
+    <p>
+      Disponibil în App Store și în curând pe Google Play.
+    </p>
+    <p>Pentru suport, trimiteți un e-mail la <a href="mailto:lingorealm@gmail.com">lingorealm@gmail.com</a>.</p>
     <a href="privacy-policy.html">Politica de confidențialitate</a>
   </footer>
 </body>

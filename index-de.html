@@ -4,135 +4,185 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lingo Realm</title>
+  <!-- Google Fonts for a modern premium look -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
   <style>
-    /* General Page Styling */
+    :root {
+      /* Farbpalette */
+      --royal-blue: #1A73E8;  /* Akzent, Rahmen */
+      --golden: #D4AF37;      /* Abschnittsüberschriften, Links */
+      --vibrant: #FF6F61;     /* Slogan und Hover-Effekte */
+      --dark-1: #1C1C1E;      /* Haupt-Hintergrund */
+      --dark-2: #2C2C2E;      /* Header- und Footer-Hintergrund */
+      --ivory: #FFF8E7;       /* Primärer Text */
+    }
+
+    /* Allgemeiner Seitenstil */
     body {
-      font-family: 'Press Start 2P', Arial, sans-serif; /* Gaming-inspired font */
+      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #007AFF; /* Blue background */
-      color: #ffffff; /* White text */
+      background-color: var(--dark-1);
+      color: var(--ivory);
       line-height: 1.6;
     }
     
-    /* Header Styling */
+    /* Header-Stil */
     header {
-      background-color: #0051a2; /* Darker blue for header */
-      color: #ffffff; /* White text */
+      background-color: var(--dark-2);
       padding: 2rem;
       text-align: center;
-      text-transform: uppercase;
+      border-bottom: 1px solid var(--royal-blue);
     }
     header img {
-      width: 150px;
+      width: 120px;
       margin-bottom: 1rem;
     }
     header h1 {
       font-size: 2.5rem;
       margin: 0;
+      color: var(--ivory);
     }
     .flags {
       margin: 1rem 0;
     }
-    .flags a, .flags span {
-      font-size: 3rem; /* Large size for flags */
+    .flags span, .flags a {
+      font-size: 2rem;
       margin: 0 5px;
       text-decoration: none;
+      color: var(--ivory);
     }
     header h2 {
-      font-size: 1.2rem;
+      font-size: 1rem;
       margin-top: 0.5rem;
+      color: var(--vibrant);
     }
     
-    /* Section Styling */
+    /* Abschnitt-Stil */
     section {
       padding: 2rem;
     }
     section h2 {
       font-size: 1.8rem;
-      color: #ffffff; /* White for section headers */
+      color: var(--golden);
+      margin-bottom: 1rem;
     }
     section p, section ul {
-      color: #ffffff; /* White text for content */
+      color: var(--ivory);
+    }
+    section ul {
+      list-style: none;
+      padding: 0;
+    }
+    section ul li::before {
+      content: "•";
+      margin-right: 0.5rem;
+      color: var(--golden);
     }
     
-    /* Screenshots Grid */
+    /* Screenshots Grid (10 Bilder, maximal 5 pro Zeile) */
     .screenshots {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(5, 1fr);
       gap: 1rem;
     }
     .screenshots img {
       width: 100%;
-      border: 5px solid #ffffff; /* White border */
+      border: 3px solid var(--royal-blue);
       border-radius: 10px;
-      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
     
-    /* Videos Section */
+    /* Gameplay-Videos (5 Videos) */
     .videos {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 1rem;
       justify-items: center;
     }
     .videos video {
       width: 100%;
       height: auto;
-      border: 3px solid #ffffff; /* White border */
+      border: 2px solid var(--royal-blue);
       border-radius: 5px;
-      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
     
-    /* Footer Styling */
+    /* QR-Code Bereich */
+    .qr-code img {
+      max-width: 200px;
+      display: block;
+      margin: 0 auto;
+      border: 2px solid var(--royal-blue);
+      border-radius: 10px;
+    }
+    
+    /* Footer-Stil */
     footer {
-      background-color: #0051a2;
+      background-color: var(--dark-2);
       padding: 1.5rem;
       text-align: center;
-      color: #ffffff;
+      color: var(--ivory);
       font-size: 0.9rem;
+      border-top: 1px solid var(--royal-blue);
     }
     footer a {
-      color: #ffffff;
+      color: var(--golden);
       text-decoration: none;
     }
     footer a:hover {
+      color: var(--vibrant);
       text-decoration: underline;
+    }
+    
+    /* Responsive-Stil für mobile Geräte im Hochformat */
+    @media only screen and (max-width: 480px) and (orientation: portrait) {
+      .qr-code img {
+        width: 80vw;
+      }
+      .screenshots {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .videos {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Header Section -->
+  <!-- Header-Bereich -->
   <header>
     <img src="logo.png" alt="Lingo Realm Logo">
     <h1>Lingo Realm</h1>
     <div class="flags">
-      <a href="index-en.html" title="English">🇬🇧</a>
-      <a href="index-es.html" title="Spanish">🇪🇸</a>
-      <a href="index-fr.html" title="French">🇫🇷</a>
-      <span title="German">🇩🇪</span>
-      <a href="index-it.html" title="Italian">🇮🇹</a>
-      <a href="index-pl.html" title="Polish">🇵🇱</a>
-      <a href="index-ro.html" title="Romanian">🇷🇴</a>
-      <a href="index-nl.html" title="Dutch">🇳🇱</a>
-      <a href="index-ru.html" title="Russian">🇷🇺</a>
-      <a href="index-uk.html" title="Ukrainian">🇺🇦</a>
-      <a href="index-tr.html" title="Turkish">🇹🇷</a>
-      <a href="index-el.html" title="Greek">🇬🇷</a>
-      <a href="index-sv.html" title="Swedish">🇸🇪</a>
-      <a href="index-hu.html" title="Hungarian">🇭🇺</a>
-      <a href="index-fi.html" title="Finnish">🇫🇮</a>
-      <a href="index-da.html" title="Danish">🇩🇰</a>
-      <a href="index-az.html" title="Azeri">🇦🇿</a>
+      <!-- Aktuelle Sprache: Deutsch (nicht klickbar) -->
+      <span title="Deutsch">🇩🇪</span>
+      <!-- Andere Sprachoptionen -->
+      <a href="index-en.html" title="Englisch">🇬🇧</a>
+      <a href="index-es.html" title="Spanisch">🇪🇸</a>
+      <a href="index-tr.html" title="Türkisch">🇹🇷</a>
+      <a href="index-fr.html" title="Französisch">🇫🇷</a>
+      <a href="index-it.html" title="Italienisch">🇮🇹</a>
+      <a href="index-pl.html" title="Polnisch">🇵🇱</a>
+      <a href="index-ro.html" title="Rumänisch">🇷🇴</a>
+      <a href="index-nl.html" title="Niederländisch">🇳🇱</a>
+      <a href="index-ru.html" title="Russisch">🇷🇺</a>
+      <a href="index-uk.html" title="Ukrainisch">🇺🇦</a>
+      <a href="index-el.html" title="Griechisch">🇬🇷</a>
+      <a href="index-sv.html" title="Schwedisch">🇸🇪</a>
+      <a href="index-hu.html" title="Ungarisch">🇭🇺</a>
+      <a href="index-fi.html" title="Finnisch">🇫🇮</a>
+      <a href="index-da.html" title="Dänisch">🇩🇰</a>
+      <a href="index-az.html" title="Aserbaidschanisch">🇦🇿</a>
     </div>
-    <h2>Eine revolutionäre Vokabelspielerfahrung von Lingo Games</h2>
+    <h2>Eine revolutionäre Vokabelspiel-Erfahrung von Lingo Games</h2>
   </header>
   
-  <!-- About Section -->
+  <!-- Über Lingo Realm -->
   <section>
     <h2>Über Lingo Realm</h2>
     <p>
-      Willkommen bei <strong>Lingo Realm</strong>, der ultimativen Vokabelspiel-App, die Lernen in ein fesselndes Abenteuer verwandelt. Mit Unterstützung für 17 Sprachen und 8 aufregenden Spielmodi – von Hör- und Sprechspielen über Zuordnungs-, Wortvergleichs-, Übersetzungs- und Quizmodi – ist Lingo Realm Ihr Tor, um neue Vokabeln sowohl für den Alltag als auch zur Prüfungsvorbereitung (TOEFL, GRE und Sprachniveaus von A1 bis C1) zu beherrschen.
+      Willkommen bei Lingo Realm, der ultimativen Vokabelspiel-App, die Lernen in ein spannendes Abenteuer verwandelt. Mit Unterstützung für 17 Sprachen und 8 aufregenden Spielmodi – von Hör- und Sprechspielen bis hin zu Zuordnungs-, Wortpaarungs-, Übersetzungs- und Quizmodi – ist Lingo Realm Ihr Zugang, um neue Vokabeln sowohl für den Alltag als auch für Prüfungen (TOEFL, GRE und Sprachkompetenz von A1 bis C1) zu meistern.
     </p>
     <ul>
       <li>Lernen Sie Vokabeln durch Gamification</li>
@@ -142,7 +192,7 @@
     </ul>
   </section>
   
-  <!-- Screenshots Section -->
+  <!-- Bildschirmfotos (10 Bilder, maximal 5 pro Zeile) -->
   <section>
     <h2>Bildschirmfotos</h2>
     <div class="screenshots">
@@ -151,7 +201,7 @@
       <img src="screenshot3.png" alt="Hörspiel">
       <img src="screenshot4.png" alt="Sprechspiel">
       <img src="screenshot5.png" alt="Zuordnungsspiel">
-      <img src="screenshot6.png" alt="Wortvergleich">
+      <img src="screenshot6.png" alt="Wortpaarung">
       <img src="screenshot7.png" alt="Übersetzungsspiel">
       <img src="screenshot8.png" alt="Quizspiel">
       <img src="screenshot9.png" alt="Testmodus">
@@ -159,7 +209,7 @@
     </div>
   </section>
   
-  <!-- Videos Section -->
+  <!-- Gameplay-Videos (5 Videos) -->
   <section>
     <h2>Gameplay-Videos</h2>
     <div class="videos">
@@ -172,34 +222,61 @@
         Ihr Browser unterstützt das Video-Tag nicht.
       </video>
       <video controls>
+        <source src="gameplay3.mp4" type="video/mp4">
+        Ihr Browser unterstützt das Video-Tag nicht.
+      </video>
+      <video controls>
         <source src="gameplay4.mp4" type="video/mp4">
+        Ihr Browser unterstützt das Video-Tag nicht.
+      </video>
+      <video controls>
+        <source src="gameplay5.mp4" type="video/mp4">
         Ihr Browser unterstützt das Video-Tag nicht.
       </video>
     </div>
   </section>
   
-  <!-- Features Section -->
+  <!-- Funktionen -->
   <section>
     <h2>Funktionen</h2>
     <p>
-      Erleben Sie Vokabellernen wie nie zuvor:
+      Erleben Sie das Vokabellernen wie nie zuvor:
     </p>
     <ul>
       <li>8 unterhaltsame und fesselnde Spielmodi</li>
       <li>Unterstützung für 17 Sprachen</li>
       <li>Module für Hör-, Sprech- und Übersetzungsübungen</li>
-      <li>Spezialisierte Prüfungsvorbereitung für TOEFL, GRE und Sprachtests</li>
+      <li>Spezielle Prüfungsvorbereitung für TOEFL, GRE und Sprachkompetenzniveaus</li>
     </ul>
   </section>
   
-  <!-- Footer Section -->
-  <footer>
-    <p>&copy; 2025 Lingo Games. Alle Rechte vorbehalten.</p>
+  <!-- Support -->
+  <section id="support">
+    <h2>Support</h2>
     <p>
-      Verfügbar im <strong><a href="https://apps.apple.com" target="_blank">App Store</a></strong> und demnächst auch auf <strong>Google Play</strong>.
+      Benötigen Sie Hilfe oder haben Sie Fragen zu Lingo Realm? Unser engagiertes Support-Team steht Ihnen zur Verfügung. Bei Anfragen, Problemen oder Feedback kontaktieren Sie uns bitte unter <a href="mailto:lingorealm@gmail.com">lingorealm@gmail.com</a>.
     </p>
-    <p>Für Unterstützung senden Sie uns eine E-Mail an <a href="mailto:lingorealm@gmail.com">lingorealm@gmail.com</a></p>
-    <a href="privacy-policy.html">Datenschutzerklärung</a>
+    <p>
+      Wir verpflichten uns, Ihnen schnelle und effektive Unterstützung zu bieten, damit Sie das Lingo Realm-Erlebnis voll auskosten können.
+    </p>
+  </section>
+  
+  <!-- QR-Code (für mobile Nutzer) -->
+  <section id="qrcode">
+    <h2>Laden Sie Lingo Realm herunter</h2>
+    <div class="qr-code">
+      <img src="qr-code-de.png" alt="Scannen, um Lingo Realm herunterzuladen">
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Lingo Games. Alle Rechte vorbehalten.</p>
+    <p>
+      Verfügbar im App Store und bald auf Google Play.
+    </p>
+    <p>Für Support senden Sie uns eine E-Mail an <a href="mailto:lingorealm@gmail.com">lingorealm@gmail.com</a>.</p>
+    <a href="privacy-policy.html">Datenschutzrichtlinie</a>
   </footer>
 </body>
 </html>

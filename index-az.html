@@ -4,203 +4,279 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lingo Realm</title>
+  <!-- Google Fonts for a modern premium look -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
   <style>
-    /* Ümumi Səhifə Stili */
+    :root {
+      /* Rəng Palitrası */
+      --royal-blue: #1A73E8;  /* Vurğu və kənarlıq */
+      --golden: #D4AF37;      /* Bölmə başlıqları, keçidlər */
+      --vibrant: #FF6F61;     /* Şou və hover effektləri */
+      --dark-1: #1C1C1E;      /* Əsas fon */
+      --dark-2: #2C2C2E;      /* Başlıq və altlıq fonu */
+      --ivory: #FFF8E7;       /* Əsas mətn */
+    }
+
+    /* Ümumi Səhifə Stil */
     body {
-      font-family: 'Press Start 2P', Arial, sans-serif; /* Oyun tərzində font */
+      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #007AFF; /* Mavi fon */
-      color: #ffffff; /* Ağ mətn */
+      background-color: var(--dark-1);
+      color: var(--ivory);
       line-height: 1.6;
     }
     
-    /* Başlıq Stili */
+    /* Başlıq Bölməsi */
     header {
-      background-color: #0051a2; /* Başlıq üçün daha tünd mavi */
-      color: #ffffff;
+      background-color: var(--dark-2);
       padding: 2rem;
       text-align: center;
-      text-transform: uppercase;
+      border-bottom: 1px solid var(--royal-blue);
     }
     header img {
-      width: 150px;
+      width: 120px;
       margin-bottom: 1rem;
     }
     header h1 {
       font-size: 2.5rem;
       margin: 0;
+      color: var(--ivory);
     }
     .flags {
       margin: 1rem 0;
     }
-    .flags a, .flags span {
-      font-size: 3rem; /* Bayraqlar üçün böyük ölçü */
+    .flags span, .flags a {
+      font-size: 2rem;
       margin: 0 5px;
       text-decoration: none;
+      color: var(--ivory);
     }
     header h2 {
-      font-size: 1.2rem;
+      font-size: 1rem;
       margin-top: 0.5rem;
+      color: var(--vibrant);
     }
     
-    /* Bölmə Stili */
+    /* Bölmə Stil */
     section {
       padding: 2rem;
     }
     section h2 {
       font-size: 1.8rem;
-      color: #ffffff;
+      color: var(--golden);
+      margin-bottom: 1rem;
     }
     section p, section ul {
-      color: #ffffff;
+      color: var(--ivory);
+    }
+    section ul {
+      list-style: none;
+      padding: 0;
+    }
+    section ul li::before {
+      content: "•";
+      margin-right: 0.5rem;
+      color: var(--golden);
     }
     
-    /* Ekran Görüntüləri Qridi */
+    /* Ekran Görüntüləri Qridi (10 şəkil, sətirdə maksimum 5) */
     .screenshots {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(5, 1fr);
       gap: 1rem;
     }
     .screenshots img {
       width: 100%;
-      border: 5px solid #ffffff;
+      border: 3px solid var(--royal-blue);
       border-radius: 10px;
-      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
     
-    /* Video Bölməsi */
+    /* Gameplay Videoları (5 video) */
     .videos {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 1rem;
       justify-items: center;
     }
     .videos video {
       width: 100%;
       height: auto;
-      border: 3px solid #ffffff;
+      border: 2px solid var(--royal-blue);
       border-radius: 5px;
-      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
     
-    /* Altbilgi Stili */
+    /* QR Kod Bölməsi Stil */
+    .qr-code img {
+      max-width: 200px;
+      display: block;
+      margin: 0 auto;
+      border: 2px solid var(--royal-blue);
+      border-radius: 10px;
+    }
+    
+    /* Altlıq Stil */
     footer {
-      background-color: #0051a2;
+      background-color: var(--dark-2);
       padding: 1.5rem;
       text-align: center;
-      color: #ffffff;
+      color: var(--ivory);
       font-size: 0.9rem;
+      border-top: 1px solid var(--royal-blue);
     }
     footer a {
-      color: #ffffff;
+      color: var(--golden);
       text-decoration: none;
     }
     footer a:hover {
+      color: var(--vibrant);
       text-decoration: underline;
+    }
+    
+    /* Portret Modunda Mobil Cihazlar üçün Reaksiya */
+    @media only screen and (max-width: 480px) and (orientation: portrait) {
+      .qr-code img {
+        width: 80vw;
+      }
+      .screenshots {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .videos {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
 <body>
   <!-- Başlıq Bölməsi -->
   <header>
-    <img src="logo.png" alt="Lingo Realm Logosu">
+    <img src="logo.png" alt="Lingo Realm loqosu">
     <h1>Lingo Realm</h1>
     <div class="flags">
-      <a href="index-en.html" title="English">🇬🇧</a>
-      <a href="index-es.html" title="Spanish">🇪🇸</a>
-      <a href="index-fr.html" title="French">🇫🇷</a>
-      <a href="index-de.html" title="German">🇩🇪</a>
-      <a href="index-it.html" title="Italian">🇮🇹</a>
-      <a href="index-pl.html" title="Polish">🇵🇱</a>
-      <a href="index-ro.html" title="Romanian">🇷🇴</a>
-      <a href="index-nl.html" title="Dutch">🇳🇱</a>
-      <a href="index-ru.html" title="Russian">🇷🇺</a>
-      <a href="index-uk.html" title="Ukrainian">🇺🇦</a>
-      <a href="index-tr.html" title="Turkish">🇹🇷</a>
-      <a href="index-el.html" title="Greek">🇬🇷</a>
-      <a href="index-sv.html" title="Swedish">🇸🇪</a>
-      <a href="index-hu.html" title="Hungarian">🇭🇺</a>
-      <a href="index-fi.html" title="Finnish">🇫🇮</a>
-      <a href="index-da.html" title="Danish">🇩🇰</a>
-      <span title="Azeri">🇦🇿</span>
+      <!-- Cari dil: Azərbaycan (kliklənməz) -->
+      <span title="Azərbaycan">🇦🇿</span>
+      <!-- Digər dil seçimləri -->
+      <a href="index-en.html" title="İngilis">🇬🇧</a>
+      <a href="index-es.html" title="İspan">🇪🇸</a>
+      <a href="index-fr.html" title="Fransız">🇫🇷</a>
+      <a href="index-de.html" title="Alman">🇩🇪</a>
+      <a href="index-it.html" title="İtalyan">🇮🇹</a>
+      <a href="index-pl.html" title="Polyak">🇵🇱</a>
+      <a href="index-ro.html" title="Rumın">🇷🇴</a>
+      <a href="index-nl.html" title="Holland">🇳🇱</a>
+      <a href="index-ru.html" title="Rus">🇷🇺</a>
+      <a href="index-uk.html" title="Ukrayn">🇺🇦</a>
+      <a href="index-tr.html" title="Türk">🇹🇷</a>
+      <a href="index-el.html" title="Yunan">🇬🇷</a>
+      <a href="index-sv.html" title="İsveç">🇸🇪</a>
+      <a href="index-hu.html" title="Macar">🇭🇺</a>
+      <a href="index-fi.html" title="Fin">🇫🇮</a>
+      <a href="index-da.html" title="Danimark">🇩🇰</a>
     </div>
-    <h2>Lingo Games-dən inqilabi lüğət oyun təcrübəsi</h2>
+    <h2>Lingo Games tərəfindən inqilabi lüğət oyunu təcrübəsi</h2>
   </header>
   
-  <!-- Haqqında Bölməsi -->
+  <!-- Lingo Realm haqqında -->
   <section>
     <h2>Lingo Realm haqqında</h2>
     <p>
-      <strong>Lingo Realm</strong>-ə xoş gəlmisiniz, öyrənməyi maraqlı macəraya çevirən ən son lüğət oyun tətbiqidir. Tətbiq 17 dili dəstəkləyir və 8 həyəcanlı oyun rejimi təklif edir – dinləmə, danışıq, uyğunlaşdırma, söz əlaqələndirmə, tərcümə və viktorina daxil olmaqla – Lingo Realm gündəlik istifadə və imtahanlara (TOEFL, GRE və A1-dən C1-ə kimi dil səviyyələri) hazırlaşmaq üçün yeni lüğətin mənimsənilməsində sizin qapınızdır.
+      Lingo Realm-ə xoş gəlmisiniz – öyrənməni cəlbedici bir macəraya çevirən ən son lüğət oyun tətbiqidir. 17 dili dəstəkləyən və dinləmə, danışma, uyğunlaşdırma, söz uyğunluğu, tərcümə və viktorina kimi 8 maraqlı oyun rejimini ehtiva edən Lingo Realm, gündəlik istifadə üçün yeni sözləri mənimsəməyiniz və imtahan hazırlığının (TOEFL, GRE və A1-dən C1-ə qədər səviyyələr) qapısını açır.
     </p>
     <ul>
-      <li>Gamifikasiya vasitəsilə lüğət öyrənin</li>
+      <li>Oyunlaşdırma vasitəsilə lüğət öyrənin</li>
       <li>8 dinamik oyun rejimi</li>
-      <li>Dəstəklənən 17 dil: İngilis, İspan, Fransız, Alman, İtalyan, Polyak, Rumın, Hollandiya, Rus, Ukrayna, Türk, Yunan, İsveç, Macar, Finland, Danimark, Azərbaycan</li>
-      <li>TOEFL, GRE və dil imtahanlarına hazırlıq modulları</li>
+      <li>17 dili dəstəkləyir: İngilis, İspan, Fransız, Alman, İtalyan, Polyak, Rumın, Holland, Rus, Ukrayn, Türk, Yunan, İsveç, Macar, Fin, Danimark, Azərbaycan</li>
+      <li>TOEFL, GRE və dil biliyi testləri üçün imtahan hazırlıq modulları</li>
     </ul>
   </section>
   
-  <!-- Ekran Görüntüləri Bölməsi -->
+  <!-- Ekran görüntüləri (10 şəkil, sətirdə maksimum 5) -->
   <section>
     <h2>Ekran görüntüləri</h2>
     <div class="screenshots">
-      <img src="screenshot1.png" alt="Əsas ekran">
+      <img src="screenshot1.png" alt="Ana ekran">
       <img src="screenshot2.png" alt="Oyun menyusu">
       <img src="screenshot3.png" alt="Dinləmə oyunu">
       <img src="screenshot4.png" alt="Danışıq oyunu">
-      <img src="screenshot5.png" alt="Uyğunlaşdırma oyunu">
-      <img src="screenshot6.png" alt="Söz əlaqələndirmə">
+      <img src="screenshot5.png" alt="Cütləşdirmə oyunu">
+      <img src="screenshot6.png" alt="Söz uyğunluğu">
       <img src="screenshot7.png" alt="Tərcümə oyunu">
-      <img src="screenshot8.png" alt="Viktorina">
+      <img src="screenshot8.png" alt="Viktorina oyunu">
       <img src="screenshot9.png" alt="Test rejimi">
-      <img src="screenshot10.png" alt="İmtahana hazırlıq">
+      <img src="screenshot10.png" alt="İmtahan hazırlığı">
     </div>
   </section>
   
-  <!-- Video Bölməsi -->
+  <!-- Oyun videoları (5 video) -->
   <section>
-    <h2>Gameplay videoları</h2>
+    <h2>Oyun videoları</h2>
     <div class="videos">
       <video controls>
         <source src="gameplay1.mp4" type="video/mp4">
-        Brauzeriniz video dəstəkləmir.
+        Brauzeriniz video etiketini dəstəkləmir.
       </video>
       <video controls>
         <source src="gameplay2.mp4" type="video/mp4">
-        Brauzeriniz video dəstəkləmir.
+        Brauzeriniz video etiketini dəstəkləmir.
+      </video>
+      <video controls>
+        <source src="gameplay3.mp4" type="video/mp4">
+        Brauzeriniz video etiketini dəstəkləmir.
       </video>
       <video controls>
         <source src="gameplay4.mp4" type="video/mp4">
-        Brauzeriniz video dəstəkləmir.
+        Brauzeriniz video etiketini dəstəkləmir.
+      </video>
+      <video controls>
+        <source src="gameplay5.mp4" type="video/mp4">
+        Brauzeriniz video etiketini dəstəkləmir.
       </video>
     </div>
   </section>
   
-  <!-- Xüsusiyyətlər Bölməsi -->
+  <!-- Xüsusiyyətlər -->
   <section>
     <h2>Xüsusiyyətlər</h2>
     <p>
-      Lüğət öyrənmə təcrübəsini heç vaxt olmadığı kimi yaşayın:
+      Lüğət öyrənməsini heç vaxt olmadığı kimi yaşayın:
     </p>
     <ul>
-      <li>8 əyləncəli və cəlbedici oyun rejimi</li>
+      <li>Əyləncəli və cəlbedici 8 oyun rejimi</li>
       <li>17 dil dəstəyi</li>
-      <li>Dinləmə, danışıq və tərcümə məşqləri üçün modullar</li>
-      <li>TOEFL, GRE və dil imtahanları üçün ixtisaslaşmış modullar</li>
+      <li>Dinləmə, danışma və tərcümə məşqləri üçün modullar</li>
+      <li>TOEFL, GRE və bilik səviyyələri üçün xüsusi imtahan hazırlığı</li>
     </ul>
   </section>
   
-  <!-- Altbilgi Bölməsi -->
-  <footer>
-    <p>&copy; 2025 Lingo Games. Bütün hüquqlar qorunur.</p>
+  <!-- Dəstək -->
+  <section id="support">
+    <h2>Dəstək</h2>
     <p>
-      <strong><a href="https://apps.apple.com" target="_blank">App Store</a></strong>-da mövcuddur və tezliklə <strong>Google Play</strong>-də də olacaq.
+      Lingo Realm haqqında yardıma ehtiyacınız var və ya suallarınız varsa? Bizim həsr olunmuş dəstək komandamız sizə kömək etmək üçün buradadır. Sorğular, problemlərin həlli və ya rəy üçün, zəhmət olmasa, <a href="mailto:lingorealm@gmail.com">lingorealm@gmail.com</a> ünvanına müraciət edin.
     </p>
-<p>Dəstək üçün, bizə <a href="mailto:lingorealm@gmail.com">lingorealm@gmail.com</a> ünvanına email göndərin</p>
-
-    <a href="privacy-policy.html">Gizlilik siyasəti</a>
+    <p>
+      Lingo Realm təcrübəsindən tam yararlanmanız üçün sürətli və effektiv dəstək təqdim etməyə sadiqik.
+    </p>
+  </section>
+  
+  <!-- QR Kod (mobil istifadəçilər üçün) -->
+  <section id="qrcode">
+    <h2>Lingo Realm-i Yükləyin</h2>
+    <div class="qr-code">
+      <img src="qr-code-az.png" alt="Lingo Realm-i yükləmək üçün skan edin">
+    </div>
+  </section>
+  
+  <!-- Altlıq -->
+  <footer>
+    <p>© 2025 Lingo Games. Bütün hüquqlar qorunur.</p>
+    <p>
+      App Store-da mövcuddur və yaxın zamanda Google Play-də olacaq.
+    </p>
+    <p>Dəstək üçün, <a href="mailto:lingorealm@gmail.com">lingorealm@gmail.com</a> ünvanına e-poçt göndərin.</p>
+    <a href="privacy-policy.html">Məxfilik siyasəti</a>
   </footer>
 </body>
 </html>

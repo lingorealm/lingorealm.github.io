@@ -4,203 +4,279 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lingo Realm</title>
+  <!-- Google Fonts for a modern premium look -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
   <style>
-    /* Generelle sidestilarter */
+    :root {
+      /* Farvepalet */
+      --royal-blue: #1A73E8;  /* Accent og rammer */
+      --golden: #D4AF37;      /* Sektionsoverskrifter, links */
+      --vibrant: #FF6F61;     /* Slogan og hover-effekter */
+      --dark-1: #1C1C1E;      /* Hovedbaggrund */
+      --dark-2: #2C2C2E;      /* Header- og footerbaggrund */
+      --ivory: #FFF8E7;       /* Primær tekst */
+    }
+    
+    /* Generel side-stil */
     body {
-      font-family: 'Press Start 2P', Arial, sans-serif; /* Spilinspireret skrifttype */
+      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #007AFF; /* Blå baggrund */
-      color: #ffffff; /* Hvid tekst */
+      background-color: var(--dark-1);
+      color: var(--ivory);
       line-height: 1.6;
     }
     
-    /* Header-stilarter */
+    /* Header-stil */
     header {
-      background-color: #0051a2; /* Mørkeblå for header */
-      color: #ffffff;
+      background-color: var(--dark-2);
       padding: 2rem;
       text-align: center;
-      text-transform: uppercase;
+      border-bottom: 1px solid var(--royal-blue);
     }
     header img {
-      width: 150px;
+      width: 120px;
       margin-bottom: 1rem;
     }
     header h1 {
       font-size: 2.5rem;
       margin: 0;
+      color: var(--ivory);
     }
     .flags {
       margin: 1rem 0;
     }
-    .flags a, .flags span {
-      font-size: 3rem; /* Stor størrelse for flag */
+    .flags span, .flags a {
+      font-size: 2rem;
       margin: 0 5px;
       text-decoration: none;
+      color: var(--ivory);
     }
     header h2 {
-      font-size: 1.2rem;
+      font-size: 1rem;
       margin-top: 0.5rem;
+      color: var(--vibrant);
     }
     
-    /* Sektion-stilarter */
+    /* Sektion-stil */
     section {
       padding: 2rem;
     }
     section h2 {
       font-size: 1.8rem;
-      color: #ffffff;
+      color: var(--golden);
+      margin-bottom: 1rem;
     }
     section p, section ul {
-      color: #ffffff;
+      color: var(--ivory);
+    }
+    section ul {
+      list-style: none;
+      padding: 0;
+    }
+    section ul li::before {
+      content: "•";
+      margin-right: 0.5rem;
+      color: var(--golden);
     }
     
-    /* Screenshots-gitter */
+    /* Screenshots-grid (10 billeder, maks 5 pr. række) */
     .screenshots {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(5, 1fr);
       gap: 1rem;
     }
     .screenshots img {
       width: 100%;
-      border: 5px solid #ffffff;
+      border: 3px solid var(--royal-blue);
       border-radius: 10px;
-      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
     
-    /* Video-sektion */
+    /* Gameplay-videoer (5 videoer) */
     .videos {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 1rem;
       justify-items: center;
     }
     .videos video {
       width: 100%;
       height: auto;
-      border: 3px solid #ffffff;
+      border: 2px solid var(--royal-blue);
       border-radius: 5px;
-      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
     
-    /* Footer-stilarter */
+    /* QR-kode sektion */
+    .qr-code img {
+      max-width: 200px;
+      display: block;
+      margin: 0 auto;
+      border: 2px solid var(--royal-blue);
+      border-radius: 10px;
+    }
+    
+    /* Footer-stil */
     footer {
-      background-color: #0051a2;
+      background-color: var(--dark-2);
       padding: 1.5rem;
       text-align: center;
-      color: #ffffff;
+      color: var(--ivory);
       font-size: 0.9rem;
+      border-top: 1px solid var(--royal-blue);
     }
     footer a {
-      color: #ffffff;
+      color: var(--golden);
       text-decoration: none;
     }
     footer a:hover {
+      color: var(--vibrant);
       text-decoration: underline;
+    }
+    
+    /* Responsive styling for mobile devices in portrait mode */
+    @media only screen and (max-width: 480px) and (orientation: portrait) {
+      .qr-code img {
+        width: 80vw;
+      }
+      .screenshots {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .videos {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Header Sektion -->
+  <!-- Header-sektion -->
   <header>
-    <img src="logo.png" alt="Logo Lingo Realm">
+    <img src="logo.png" alt="Lingo Realm logo">
     <h1>Lingo Realm</h1>
     <div class="flags">
-      <a href="index-en.html" title="English">🇬🇧</a>
-      <a href="index-es.html" title="Spanish">🇪🇸</a>
-      <a href="index-fr.html" title="French">🇫🇷</a>
-      <a href="index-de.html" title="German">🇩🇪</a>
-      <a href="index-it.html" title="Italian">🇮🇹</a>
-      <a href="index-pl.html" title="Polish">🇵🇱</a>
-      <a href="index-ro.html" title="Romanian">🇷🇴</a>
-      <a href="index-nl.html" title="Dutch">🇳🇱</a>
-      <a href="index-ru.html" title="Russian">🇷🇺</a>
-      <a href="index-uk.html" title="Ukrainian">🇺🇦</a>
-      <a href="index-tr.html" title="Turkish">🇹🇷</a>
-      <a href="index-el.html" title="Greek">🇬🇷</a>
-      <a href="index-sv.html" title="Swedish">🇸🇪</a>
-      <a href="index-hu.html" title="Hungarian">🇭🇺</a>
-      <span title="Finnish">🇫🇮</span>
-      <a href="index-da.html" title="Danish">🇩🇰</a>
-      <a href="index-az.html" title="Azeri">🇦🇿</a>
+      <!-- Nuværende sprog: Dansk (ikke klikbart) -->
+      <span title="Dansk">🇩🇰</span>
+      <!-- Andre sprogvalg -->
+      <a href="index-en.html" title="Engelsk">🇬🇧</a>
+      <a href="index-es.html" title="Spansk">🇪🇸</a>
+      <a href="index-fr.html" title="Fransk">🇫🇷</a>
+      <a href="index-de.html" title="Tysk">🇩🇪</a>
+      <a href="index-it.html" title="Italiensk">🇮🇹</a>
+      <a href="index-tr.html" title="Tyrkisk">🇹🇷</a>
+      <a href="index-pl.html" title="Polsk">🇵🇱</a>
+      <a href="index-ro.html" title="Rumænsk">🇷🇴</a>
+      <a href="index-nl.html" title="Hollandsk">🇳🇱</a>
+      <a href="index-ru.html" title="Russisk">🇷🇺</a>
+      <a href="index-uk.html" title="Ukrainsk">🇺🇦</a>
+      <a href="index-el.html" title="Græsk">🇬🇷</a>
+      <a href="index-sv.html" title="Svensk">🇸🇪</a>
+      <a href="index-hu.html" title="Ungarsk">🇭🇺</a>
+      <a href="index-fi.html" title="Finsk">🇫🇮</a>
+      <a href="index-az.html" title="Aserbajdsjansk">🇦🇿</a>
     </div>
-    <h2>En revolutionerende ordforrådsoplevelse fra Lingo Games</h2>
+    <h2>En revolutionerende ordspilsoplevelse fra Lingo Games</h2>
   </header>
   
-  <!-- Om Lingo Realm Sektion -->
+  <!-- Om Lingo Realm -->
   <section>
     <h2>Om Lingo Realm</h2>
     <p>
-      Velkommen til <strong>Lingo Realm</strong>, den ultimative app til ordforrådsspil, der forvandler læring til et spændende eventyr. Med understøttelse af 17 sprog og 8 spændende spiltilstande – fra lytte- og talespil til match, ordforbindelser, oversættelse og quizzer – er Lingo Realm din adgang til at mestre nyt ordforråd, både til hverdagsbrug og eksamensforberedelse (TOEFL, GRE og sprogfærdighedsniveauer fra A1 til C1).
+      Velkommen til Lingo Realm, den ultimative ordspilsapp, der forvandler læring til et fængslende eventyr. Med understøttelse af 17 sprog og 8 spændende spiltilstande – fra lytte- og tale-spil til matchning, ordparring, oversættelse og quizzer – er Lingo Realm din adgang til at mestre nye ord, både til daglig brug og til eksamensforberedelse (TOEFL, GRE og sprogfærdighedsniveauer fra A1 til C1).
     </p>
     <ul>
       <li>Lær ordforråd gennem gamification</li>
       <li>8 dynamiske spiltilstande</li>
       <li>Understøtter 17 sprog: Engelsk, Spansk, Fransk, Tysk, Italiensk, Polsk, Rumænsk, Hollandsk, Russisk, Ukrainsk, Tyrkisk, Græsk, Svensk, Ungarsk, Finsk, Dansk, Aserbajdsjansk</li>
-      <li>Eksamensforberedelsesmoduler for TOEFL, GRE og sprogfærdighedstest</li>
+      <li>Eksamensforberedelsesmoduler for TOEFL, GRE og sprogvurdering</li>
     </ul>
   </section>
   
-  <!-- Skærmbilleder Sektion -->
+  <!-- Screenshots-sektion (10 billeder, maks 5 pr. række) -->
   <section>
-    <h2>Skærmbilleder</h2>
+    <h2>Screenshots</h2>
     <div class="screenshots">
       <img src="screenshot1.png" alt="Startskærm">
       <img src="screenshot2.png" alt="Spilmenu">
-      <img src="screenshot3.png" alt="Lytte spil">
-      <img src="screenshot4.png" alt="Tal spil">
-      <img src="screenshot5.png" alt="Match spil">
-      <img src="screenshot6.png" alt="Ordforbindelser">
+      <img src="screenshot3.png" alt="Lytte-spil">
+      <img src="screenshot4.png" alt="Tale-spil">
+      <img src="screenshot5.png" alt="Match-spil">
+      <img src="screenshot6.png" alt="Ordparring">
       <img src="screenshot7.png" alt="Oversættelsesspil">
-      <img src="screenshot8.png" alt="Quiz">
+      <img src="screenshot8.png" alt="Quiz-spil">
       <img src="screenshot9.png" alt="Testtilstand">
       <img src="screenshot10.png" alt="Eksamensforberedelse">
     </div>
   </section>
   
-  <!-- Video-sektion -->
+  <!-- Gameplay-videoer (5 videoer) -->
   <section>
     <h2>Gameplay-videoer</h2>
     <div class="videos">
       <video controls>
         <source src="gameplay1.mp4" type="video/mp4">
-        Din browser understøtter ikke videoelementet.
+        Din browser understøtter ikke video-elementet.
       </video>
       <video controls>
         <source src="gameplay2.mp4" type="video/mp4">
-        Din browser understøtter ikke videoelementet.
+        Din browser understøtter ikke video-elementet.
+      </video>
+      <video controls>
+        <source src="gameplay3.mp4" type="video/mp4">
+        Din browser understøtter ikke video-elementet.
       </video>
       <video controls>
         <source src="gameplay4.mp4" type="video/mp4">
-        Din browser understøtter ikke videoelementet.
+        Din browser understøtter ikke video-elementet.
+      </video>
+      <video controls>
+        <source src="gameplay5.mp4" type="video/mp4">
+        Din browser understøtter ikke video-elementet.
       </video>
     </div>
   </section>
   
-  <!-- Funktioner Sektion -->
+  <!-- Funktioner-sektion -->
   <section>
     <h2>Funktioner</h2>
     <p>
       Oplev ordforrådsindlæring som aldrig før:
     </p>
     <ul>
-      <li>8 sjove og engagerende spiltilstande</li>
+      <li>8 sjove og fængende spiltilstande</li>
       <li>Understøttelse af 17 sprog</li>
       <li>Moduler til lytte-, tale- og oversættelsesøvelser</li>
-      <li>Specialiserede eksamensforberedelsesmoduler for TOEFL, GRE og sprogfærdighedstest</li>
+      <li>Særlig eksamensforberedelse til TOEFL, GRE og sprogfærdighedsniveauer</li>
     </ul>
   </section>
   
-  <!-- Footer Sektion -->
-  <footer>
-    <p>&copy; 2025 Lingo Games. Alle rettigheder forbeholdes.</p>
+  <!-- Support-sektion -->
+  <section id="support">
+    <h2>Support</h2>
     <p>
-      Tilgængelig på <strong><a href="https://apps.apple.com" target="_blank">App Store</a></strong> og snart på <strong>Google Play</strong>.
+      Har du brug for hjælp eller spørgsmål om Lingo Realm? Vores dedikerede supportteam står klar til at hjælpe. For forespørgsler, fejlfinding eller feedback, kontakt os venligst på <a href="mailto:lingorealm@gmail.com">lingorealm@gmail.com</a>.
     </p>
-<p>For support, send os en e-mail på <a href="mailto:lingorealm@gmail.com">lingorealm@gmail.com</a></p>
-
-    <a href="privacy-policy.html">Privatlivspolitik</a>
+    <p>
+      Vi forpligter os til at yde hurtig og effektiv support, så du kan få mest muligt ud af din Lingo Realm-oplevelse.
+    </p>
+  </section>
+  
+  <!-- QR-kode sektion (til mobilbrugere) -->
+  <section id="qrcode">
+    <h2>Download Lingo Realm</h2>
+    <div class="qr-code">
+      <img src="qr-code-da.png" alt="Scan for at downloade Lingo Realm">
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Lingo Games. Alle rettigheder forbeholdes.</p>
+    <p>
+      Tilgængelig i App Store og snart på Google Play.
+    </p>
+    <p>For support, send en e-mail til <a href="mailto:lingorealm@gmail.com">lingorealm@gmail.com</a>.</p>
+    <a href="privacy-policy.html">Fortrolighedspolitik</a>
   </footer>
 </body>
 </html>
