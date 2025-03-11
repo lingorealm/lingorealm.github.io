@@ -4,27 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lingo Realm</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-color: #121212;
+      --header-bg: #1F1F1F;
+      --accent-color: #BB86FC;
+      --text-color: #E0E0E0;
+      --border-color: #333;
+      --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
     /* General Page Styling */
     body {
-      font-family: 'Press Start 2P', Arial, sans-serif; /* Gaming-inspired font */
+      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #007AFF; /* Blue background */
-      color: #ffffff; /* White text */
+      background-color: var(--bg-color);
+      color: var(--text-color);
       line-height: 1.6;
     }
     
     /* Header Styling */
     header {
-      background-color: #0051a2; /* Darker blue for header */
-      color: #ffffff; /* White text */
+      background-color: var(--header-bg);
       padding: 2rem;
       text-align: center;
-      text-transform: uppercase;
+      border-bottom: 1px solid var(--border-color);
     }
     header img {
-      width: 150px;
+      width: 120px;
       margin-bottom: 1rem;
     }
     header h1 {
@@ -35,13 +44,15 @@
       margin: 1rem 0;
     }
     .flags a, .flags span {
-      font-size: 3rem; /* Large size for flags */
+      font-size: 2rem;
       margin: 0 5px;
       text-decoration: none;
+      color: var(--text-color);
     }
     header h2 {
-      font-size: 1.2rem;
+      font-size: 1rem;
       margin-top: 0.5rem;
+      color: var(--accent-color);
     }
     
     /* Section Styling */
@@ -50,10 +61,20 @@
     }
     section h2 {
       font-size: 1.8rem;
-      color: #ffffff; /* White for section headers */
+      color: var(--accent-color);
+      margin-bottom: 1rem;
     }
     section p, section ul {
-      color: #ffffff; /* White text for content */
+      color: var(--text-color);
+    }
+    section ul {
+      list-style: none;
+      padding: 0;
+    }
+    section ul li::before {
+      content: "•";
+      margin-right: 0.5rem;
+      color: var(--accent-color);
     }
     
     /* Screenshots Grid (10 images, max 5 per row) */
@@ -64,9 +85,9 @@
     }
     .screenshots img {
       width: 100%;
-      border: 5px solid #ffffff; /* White border */
+      border: 3px solid var(--border-color);
       border-radius: 10px;
-      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
+      box-shadow: var(--box-shadow);
     }
     
     /* Videos Section (5 videos in grid) */
@@ -79,9 +100,9 @@
     .videos video {
       width: 100%;
       height: auto;
-      border: 3px solid #ffffff; /* White border */
+      border: 2px solid var(--border-color);
       border-radius: 5px;
-      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
+      box-shadow: var(--box-shadow);
     }
     
     /* QR Code Section Default Styling */
@@ -89,18 +110,21 @@
       max-width: 200px;
       display: block;
       margin: 0 auto;
+      border: 2px solid var(--border-color);
+      border-radius: 10px;
     }
     
     /* Footer Styling */
     footer {
-      background-color: #0051a2;
+      background-color: var(--header-bg);
       padding: 1.5rem;
       text-align: center;
-      color: #ffffff;
+      color: var(--text-color);
       font-size: 0.9rem;
+      border-top: 1px solid var(--border-color);
     }
     footer a {
-      color: #ffffff;
+      color: var(--accent-color);
       text-decoration: none;
     }
     footer a:hover {
@@ -110,7 +134,13 @@
     /* Responsive Styling for Phone Screens in Vertical Mode */
     @media only screen and (max-width: 480px) and (orientation: portrait) {
       .qr-code img {
-        width: 80vw; /* QR code occupies 80% of the viewport width */
+        width: 80vw;
+      }
+      .screenshots {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .videos {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   </style>
@@ -121,9 +151,7 @@
     <img src="logo.png" alt="Lingo Realm Logo">
     <h1>Lingo Realm</h1>
     <div class="flags">
-      <!-- English is the current language; the flag is not clickable -->
       <span title="English">🇬🇧</span>
-      <!-- Other language links -->
       <a href="index-es.html" title="Spanish">🇪🇸</a>
       <a href="index-fr.html" title="French">🇫🇷</a>
       <a href="index-de.html" title="German">🇩🇪</a>
@@ -232,7 +260,7 @@
   <section id="qrcode">
     <h2>Download Lingo Realm</h2>
     <div class="qr-code">
-      <img src="qr-code.png" alt="Scan to download Lingo Realm">
+      <img src="qrcode.png" alt="Scan to download Lingo Realm">
     </div>
   </section>
   
