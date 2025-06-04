@@ -108,13 +108,30 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
     
-    /* Stilul pentru QR Code */
+    /* QR Code Section Styling */
+    .qr-code-container {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .qr-code {
+      text-align: center;
+    }
+
     .qr-code img {
       max-width: 200px;
-      display: block;
-      margin: 0 auto;
       border: 2px solid var(--royal-blue);
       border-radius: 10px;
+    }
+
+    .qr-code figcaption {
+      margin-top: 0.5rem;
+      color: var(--ivory);
+      font-weight: bold;
+      font-size: 1rem;
     }
     
     /* Stilul footer-ului */
@@ -265,8 +282,15 @@
   <!-- Secțiunea QR Code (pentru utilizatorii de mobil) -->
   <section id="qrcode">
     <h2>Descarcă Lingo Realm</h2>
-    <div class="qr-code">
-      <img src="qr-code-ro.png" alt="Scanează pentru a descărca Lingo Realm">
+    <div class="qr-code-container">
+      <figure class="qr-code">
+        <img src="qr-code.png" alt="Scan to download Lingo Realm for iOS">
+        <figcaption>App Store</figcaption>
+      </figure>
+      <figure class="qr-code">
+        <img src="qr-code-android.png" alt="Scan to download Lingo Realm for Android">
+        <figcaption>Google Play</figcaption>
+      </figure>
     </div>
   </section>
   
@@ -274,7 +298,7 @@
   <footer>
     <p>© 2025 Lingo Games. Toate drepturile rezervate.</p>
     <p>
-      Disponibil în App Store și în curând pe Google Play.
+      Disponibil în AppStore și Google Play.
     </p>
     <p>Pentru suport, trimiteți un e-mail la <a href="mailto:lingorealm@gmail.com">lingorealm@gmail.com</a>.</p>
     <a href="privacy-policy.html">Politica de confidențialitate</a>
